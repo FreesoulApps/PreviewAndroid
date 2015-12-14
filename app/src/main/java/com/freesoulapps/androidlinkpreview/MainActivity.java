@@ -32,6 +32,5 @@ public class MainActivity extends Activity {
                     }
                 }
             });
-        //mPreview.setData("http://www.wallashops.co.il/%D7%98%D7%9C%D7%95%D7%95%D7%99%D7%96%D7%99%D7%94-50-LED-Smart-TV-NEON-%D7%93%D7%92%D7%9D-NE-50FLED/pi2ICNE50FLEDSMART");
     }
 }
