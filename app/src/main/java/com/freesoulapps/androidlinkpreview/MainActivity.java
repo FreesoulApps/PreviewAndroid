@@ -11,7 +11,7 @@ import com.freesoulapps.preview.android.Preview;
 /**
  * Created by Alex on 11/12/2015.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements Preview.PreviewListener {
     EditText mInputLink;
     Button mBtnPreview;
     Preview mPreview;
@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
         mInputLink=(EditText)findViewById(R.id.inputLink);
         mBtnPreview=(Button)findViewById(R.id.btnPreview);
         mPreview=(Preview)findViewById(R.id.preview);
+        mPreview.setListener(this);
         if(mBtnPreview!=null)
             mBtnPreview.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -32,5 +33,10 @@ public class MainActivity extends Activity {
                     }
                 }
             });
+    }
+
+    @Override
+    public void onDataReady(Preview preview) {
+        mPreview.setMessage(preview.getLink());
     }
 }

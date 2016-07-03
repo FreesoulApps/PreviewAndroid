@@ -1,11 +1,5 @@
 apply plugin: 'com.android.library'
 
-/*ext {
-    PUBLISH_GROUP_ID = 'com.freesoulapps'
-    PUBLISH_ARTIFACT_ID = 'preview-android'
-    PUBLISH_VERSION = '0.1.1'
-}*/
-
 
 ext {
     bintrayRepo = 'maven'
@@ -20,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/FreesoulApps/PreviewAndroid'
     gitUrl = 'https://github.com/FreesoulApps/PreviewAndroid.git'
 
-    libraryVersion = '0.1.9'
+    libraryVersion = '0.3.1'
 
     developerId = 'freesoulapps'
     developerName = 'Alex Vainshtein'
@@ -39,7 +33,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -58,6 +52,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.1.1'
     compile 'com.android.support:percent:23.1.1'
     compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.victor:lib:1.0.1'
 }
 
 //apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
