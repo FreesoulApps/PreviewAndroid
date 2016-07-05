@@ -306,6 +306,8 @@ public class Preview extends RelativeLayout {
                         mFrameLayout.setVisibility(GONE);
                     }
                 });
+
+
             }
 
         }
