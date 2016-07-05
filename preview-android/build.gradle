@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/FreesoulApps/PreviewAndroid'
     gitUrl = 'https://github.com/FreesoulApps/PreviewAndroid.git'
 
-    libraryVersion = '0.3.1'
+    libraryVersion = '0.3.2'
 
     developerId = 'freesoulapps'
     developerName = 'Alex Vainshtein'
