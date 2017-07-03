@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidLinkPreview.iml" filepath="$PROJECT_DIR$/AndroidLinkPreview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PreviewAndroid.iml" filepath="$PROJECT_DIR$/PreviewAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/preview-android/preview-android.iml" filepath="$PROJECT_DIR$/preview-android/preview-android.iml" />
     </modules>

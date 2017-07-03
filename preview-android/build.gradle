@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/FreesoulApps/PreviewAndroid'
     gitUrl = 'https://github.com/FreesoulApps/PreviewAndroid.git'
 
-    libraryVersion = '0.3.2'
+    libraryVersion = '0.3.3'
 
     developerId = 'freesoulapps'
     developerName = 'Alex Vainshtein'
@@ -27,7 +27,7 @@ ext {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         minSdkVersion 16
@@ -47,11 +47,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.github.bumptech.glide:glide:3.6.1'
-    compile 'org.jsoup:jsoup:1.8.3'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'org.jsoup:jsoup:1.10.3'
     compile 'com.android.support:cardview-v7:23.1.1'
     compile 'com.android.support:percent:23.1.1'
-    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
     compile 'com.victor:lib:1.0.1'
 }
 

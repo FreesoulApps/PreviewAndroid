@@ -1,9 +1,12 @@
 package com.freesoulapps.preview.android;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -165,7 +168,9 @@ public class Preview extends RelativeLayout {
                 client.newCall(request).enqueue(new Callback() {
                     @Override
                     public void onFailure(Request request, IOException throwable) {
-                        Log.e(TAG, throwable.getMessage());
+                        if(!TextUtils.isEmpty(throwable.getMessage())) {
+                            Log.e(TAG, throwable.getMessage());
+                        }
                     }
 
                     @Override
@@ -187,12 +192,30 @@ public class Preview extends RelativeLayout {
                         if (url.contains("bhphotovideo")) {
                             imageElements = doc.select("image[id=mainImage]");
                             site = "bhphotovideo";
-                        } else if (url.contains("www.amazon.com/gp/aw/d")) {
-                            imageElements = doc.select("image[id=mainImage]");
-                            site = "www.amazon.com/gp/aw/d";
-                        } else if (url.contains("www.amazon.com/")) {
+                        } else if (url.contains("www.amazon.com")) {
                             imageElements = doc.select("img[data-old-hires]");
-                            site = "www.amazon.com/";
+                            site = "www.amazon.com";
+                        } else if (url.contains("www.amazon.co.uk")) {
+                            imageElements = doc.select("img[data-old-hires]");
+                            site = "www.amazon.co.uk";
+                        } else if (url.contains("www.amazon.de")) {
+                            imageElements = doc.select("img[data-old-hires]");
+                            site = "www.amazon.de";
+                        } else if (url.contains("www.amazon.fr")) {
+                            imageElements = doc.select("img[data-old-hires]");
+                            site = "www.amazon.fr";
+                        } else if (url.contains("www.amazon.it")) {
+                            imageElements = doc.select("img[data-old-hires]");
+                            site = "www.amazon.it";
+                        } else if (url.contains("www.amazon.es")) {
+                            imageElements = doc.select("img[data-old-hires]");
+                            site = "www.amazon.es";
+                        } else if (url.contains("www.amazon.ca")) {
+                            imageElements = doc.select("img[data-old-hires]");
+                            site = "www.amazon.ca";
+                        } else if (url.contains("www.amazon.co.jp")) {
+                            imageElements = doc.select("img[data-old-hires]");
+                            site = "www.amazon.co.jp";
                         } else if (url.contains("m.clove.co.uk")) {
                             imageElements = doc.select("img[id]");
                             site = "m.clove.co.uk";
@@ -352,11 +375,31 @@ public class Preview extends RelativeLayout {
                 case "bhphotovideo":
                     imageLink = elements.get(0).attr("src");
                     break;
-                case "www.amazon.com/gp/aw/d":
-
-                    break;
-                case "www.amazon.com/":
+                case "www.amazon.com":
+                case "www.amazon.co.uk":
+                case "www.amazon.de":
+                case "www.amazon.fr":
+                case "www.amazon.it":
+                case "www.amazon.es":
+                case "www.amazon.ca":
+                case "www.amazon.co.jp":
                     imageLink = elements.get(0).attr("data-old-hires");
+                    if(TextUtils.isEmpty(imageLink)) {
+                        imageLink=elements.get(0).attr("src");
+                        if(imageLink.contains("data:image/jpeg;base64,")) {
+                            imageLink=elements.get(0).attr("data-a-dynamic-image");
+                            if(!TextUtils.isEmpty(imageLink)) {
+                                String[] array=imageLink.split(":\\[");
+                                if(array.length>1) {
+                                    imageLink=array[0];
+                                    if(!TextUtils.isEmpty(imageLink)) {
+                                        imageLink=imageLink.replace("{\"","");
+                                        imageLink=imageLink.replace("\"","");
+                                    }
+                                }
+                            }
+                        }
+                    }
                     break;
                 case "www.clove.co.uk":
                     imageLink="https://www.clove.co.uk"+elements.get(0).attr("data-thumbnail-path");
