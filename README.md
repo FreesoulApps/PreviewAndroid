@@ -6,4 +6,4 @@ Creating preview view for android from link
 # Download
 
 Using Gradle:
-```compile 'com.freesoulapps:preview-android:0.3.2'```
+```compile 'com.freesoulapps:preview-android:0.3.3'```
